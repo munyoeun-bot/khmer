@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scroll Post Animation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+  margin: 0;
+  font-family: Arial;
+  background: #f4f4f4;
+}
+
+.title {
+  text-align: center;
+  margin: 40px 0;
+}
+
+/* layout */
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 40px;
+}
+
+/* card */
+.post {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+  /* scroll animation */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.6s ease;
+}
+
+/* show on scroll */
+.post.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* image */
+.post img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* text */
+.post-content {
+  padding: 15px;
+}
+
+/* hover */
+.post:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+  </style>
+</head>
+<body>
+
+<h1 class="title">Latest Posts</h1>
+
+<div class="posts">
+
+  <article class="post">
+    <img src="/Picture/actorpng.png">
+    <div class="post-content">
+      <h3>Agronomy 🌱</h3>
+      <p>Learn about farming and crops...</p>
+    </div>
+  </article>
+
+  <article class="post">
+    <img src="../Picture/Accunting.jpg">
+    <div class="post-content">
+      <h3>Electronic ⚡</h3>
+      <p>Explore circuits and devices...</p>
+    </div>
+  </article>
+
+  <article class="post">
+    <img src="../Picture/actor1.jpg">
+    <div class="post-content">
+      <h3>Information Technology 💻</h3>
+      <p>Programming and modern tech...</p>
+    </div>
+  </article>
+  <article class="post">
+    <img src="../Picture/Acon.jpg">
+    <div class="post-content">
+      <h3>Information Technology 💻</h3>
+      <p>Programming and modern tech...</p>
+    </div>
+  </article>
+  <article class="post">
+    <img src="../Picture/Acon.jpg">
+    <div class="post-content">
+      <h3>Information Technology 💻</h3>
+      <p>Programming and modern tech...</p>
+    </div>
+  </article>
+  <article class="post">
+    <img src="../Picture/actor1.jpg">
+    <div class="post-content">
+      <h3>Information Technology 💻</h3>
+      <p>Programming and modern tech...</p>
+    </div>
+  </article>
+  <article class="post">
+    <img src="../Picture/Accunting.jpg">
+    <div class="post-content">
+      <h3>Information Technology 💻</h3>
+      <p>Programming and modern tech...</p>
+    </div>
+  </article>
+  <article class="post">
+    <img src="../Picture/ITstady.jpg">
+    <div class="post-content">
+      <h3>Information Technology 💻</h3>
+      <p>Programming and modern tech...</p>
+    </div>
+  </article>
+
+</div>
+<script>
+    const posts = document.querySelectorAll(".post");
+
+window.addEventListener("scroll", () => {
+  const trigger = window.innerHeight - 100;
+
+  posts.forEach((post, index) => {
+    const top = post.getBoundingClientRect().top;
+
+    if (top < trigger) {
+      setTimeout(() => {
+        post.classList.add("show");
+      }, index * 150); // delay effect
+    }
+  });
+});
+</script>
+</body>
+</html>
